@@ -6,8 +6,6 @@ public class Categoria {
 	
 	@Id
 	private int id;
-
- 
 	private String nome;
 	public String getNome() {
 		return nome;

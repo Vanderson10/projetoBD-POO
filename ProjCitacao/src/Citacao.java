@@ -7,9 +7,11 @@ import javax.persistence.Id;
 public class Citacao {
 	
 	@Id
-	private String descricao;
 	private int id;
+	private String descricao;
+	@ManyToOne(mappedBy ="Citacao")
 	private ArrayList<Pensador>autores;
+	@ManyToOne
 	private ArrayList<Categoria>categorias;
 	public String getDescricao() {
 		return descricao;

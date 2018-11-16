@@ -12,7 +12,10 @@ public class Usuario {
 	private String email;
 	private int idade;
 	private String nome;
+	
+	 
 	private ArrayList<Citacao>visualiza;
+	
 	private ArrayList<Citacao>avalia;
 	private HashMap<Citacao, Integer> avaliacoes;
 	
