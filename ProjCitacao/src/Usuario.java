@@ -1,8 +1,12 @@
-import java.util.ArrayList;
+import java.util.Set;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
@@ -13,11 +17,23 @@ public class Usuario {
 	private int idade;
 	private String nome;
 	
-	 
-	private ArrayList<Citacao>visualiza;
+	@ManyToMany
+	@JoinTable(
+			name = "Usuario_Cita",
+			joinColumns = @JoinColumn(name = "citação_id"),
+			inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	private Set<Citacao>visualiza;
 	
-	private ArrayList<Citacao>avalia;
+	@ManyToMany 
+	@JoinTable(
+			name = "Avalia_citação",
+			joinColumns = @JoinColumn(name = "citação_id"),
+			inverseJoinColumns = @JoinColumn(name = "avalia_id"))
+	private Set<Citacao>avalia;
+	
 	private HashMap<Citacao, Integer> avaliacoes;
+	
+	//--------------------------------GET E SETS----------------------------------------------//
 	
 	public String getEmail() {
 		return email;
@@ -43,20 +59,20 @@ public class Usuario {
 	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
-	public ArrayList<Citacao> getVisualiza() {
+	public Set<Citacao> getVisualiza() {
 		return visualiza;
 	}
-	public void setVisualiza(ArrayList<Citacao> visualiza) {
+	public void setVisualiza(Set<Citacao> visualiza) {
 		this.visualiza = visualiza;
 	}
-	public ArrayList<Citacao> getAvalia() {
+	public Set<Citacao> getAvalia() {
 		return avalia;
 	}
-	public void setAvalia(ArrayList<Citacao> avalia) {
+	public void setAvalia(Set<Citacao> avalia) {
 		this.avalia = avalia;
 	}
-	public Usuario(String email, int idade, String nome, long cpf, ArrayList<Citacao> visualiza,
-			ArrayList<Citacao> avalia) {
+	public Usuario(String email, int idade, String nome, long cpf, Set<Citacao> visualiza,
+			Set<Citacao> avalia) {
 		super();
 		this.email = email;
 		this.idade = idade;
@@ -129,12 +145,5 @@ public class Usuario {
 	public void setAvaliacoes(HashMap<Citacao, Integer> avaliacoes) {
 		this.avaliacoes = avaliacoes;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

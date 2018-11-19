@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Citacao {
@@ -9,10 +12,19 @@ public class Citacao {
 	@Id
 	private int id;
 	private String descricao;
-	@ManyToOne(mappedBy ="Citacao")
-	private ArrayList<Pensador>autores;
+	
 	@ManyToOne
-	private ArrayList<Categoria>categorias;
+	@JoinColumn(name="id_pensador")
+	private Set<Pensador>autores;
+	
+	@ManyToOne
+	@JoinColumn(name="id_categoria")
+	private Set<Categoria>categorias;
+	
+	
+	
+	
+	//--------------------------------GET E SETS----------------------------------------------//
 	public String getDescricao() {
 		return descricao;
 	}
@@ -25,19 +37,21 @@ public class Citacao {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public ArrayList<Pensador> getAutores() {
+	public Set<Pensador> getAutores() {
 		return autores;
 	}
-	public void setAutores(ArrayList<Pensador> autores) {
+	public void setAutores(Set<Pensador> autores) {
 		this.autores = autores;
 	}
-	public ArrayList<Categoria> getCategorias() {
+	public Set<Categoria> getCategorias() {
 		return categorias;
 	}
-	public void setCategorias(ArrayList<Categoria> categorias) {
+	public void setCategorias(Set<Categoria> categorias) {
 		this.categorias = categorias;
 	}
-	public Citacao(String descricao, int id, ArrayList<Pensador> autores, ArrayList<Categoria> categorias) {
+	
+	//---------------------------------CONSTRUTOR----------------------------------------------------------//
+	public Citacao(String descricao, int id, Set<Pensador> autores,Set<Categoria> categorias) {
 		super();
 		this.descricao = descricao;
 		this.id = id;
