@@ -1,4 +1,5 @@
 import java.util.Set;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -71,16 +72,7 @@ public class Usuario {
 	public void setAvalia(Set<Citacao> avalia) {
 		this.avalia = avalia;
 	}
-	public Usuario(String email, int idade, String nome, long cpf, Set<Citacao> visualiza,
-			Set<Citacao> avalia) {
-		super();
-		this.email = email;
-		this.idade = idade;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.visualiza = visualiza;
-		this.avalia = avalia;
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

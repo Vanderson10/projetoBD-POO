@@ -44,11 +44,7 @@ public class Pensador {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Pensador(String nome, int id) {
-		super();
-		this.nome = nome;
-		this.id = id;
-	}
+	
 	@Override
 	public String toString() {
 		return "Pensador [nome=" + nome + ", id=" + id + "]";

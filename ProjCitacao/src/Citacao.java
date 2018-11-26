@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -50,14 +49,7 @@ public class Citacao {
 		this.categorias = categorias;
 	}
 	
-	//---------------------------------CONSTRUTOR----------------------------------------------------------//
-	public Citacao(String descricao, int id, Set<Pensador> autores,Set<Categoria> categorias) {
-		super();
-		this.descricao = descricao;
-		this.id = id;
-		this.autores = autores;
-		this.categorias = categorias;
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

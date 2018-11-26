@@ -19,11 +19,6 @@ public class Categoria {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Categoria(String nome, int id) {
-		super();
-		this.nome = nome;
-		this.id = id;
-	}
 	@Override
 	public String toString() {
 		return "Categoria [nome=" + nome + ", id=" + id + "]";
