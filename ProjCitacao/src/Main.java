@@ -11,7 +11,6 @@ public class Main {
 		Pensador p = new Pensador();
 		p.setId(1);
 		p.setNome("Bob Marley");
-
 		em.persist(p);
 		em.getTransaction().commit();
 		em.close();
