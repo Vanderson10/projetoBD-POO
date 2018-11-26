@@ -14,11 +14,11 @@ public class Citacao {
 	
 	@ManyToOne
 	@JoinColumn(name="id_pensador")
-	private Set<Pensador>autores;
+	private Pensador autor;
 	
 	@ManyToOne
 	@JoinColumn(name="id_categoria")
-	private Set<Categoria>categorias;
+	private Categoria categoria;
 	
 	
 	
@@ -36,17 +36,17 @@ public class Citacao {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Set<Pensador> getAutores() {
-		return autores;
+	public Pensador getAutor() {
+		return autor;
 	}
-	public void setAutores(Set<Pensador> autores) {
-		this.autores = autores;
+	public void setAutor(Pensador autor) {
+		this.autor = autor;
 	}
-	public Set<Categoria> getCategorias() {
-		return categorias;
+	public Categoria getCategoria() {
+		return categoria;
 	}
-	public void setCategorias(Set<Categoria> categorias) {
-		this.categorias = categorias;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
 	
@@ -54,8 +54,7 @@ public class Citacao {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((autores == null) ? 0 : autores.hashCode());
-		result = prime * result + ((categorias == null) ? 0 : categorias.hashCode());
+		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + id;
 		return result;
@@ -69,16 +68,12 @@ public class Citacao {
 		if (getClass() != obj.getClass())
 			return false;
 		Citacao other = (Citacao) obj;
-		if (autores == null) {
-			if (other.autores != null)
+		if (autor == null) {
+			if (other.autor != null)
 				return false;
-		} else if (!autores.equals(other.autores))
+		} else if (!autor.equals(other.autor))
 			return false;
-		if (categorias == null) {
-			if (other.categorias != null)
-				return false;
-		} else if (!categorias.equals(other.categorias))
-			return false;
+
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
@@ -90,8 +85,7 @@ public class Citacao {
 	}
 	@Override
 	public String toString() {
-		return "Citacao [descricao=" + descricao + ", id=" + id + ", autores=" + autores + ", categorias=" + categorias
-				+ "]";
+		return "Citacao [descricao=" + descricao + ", id=" + id + ", autores=" + autor + "]";
 	}
 	
 	
