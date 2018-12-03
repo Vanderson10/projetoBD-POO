@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Citacao {
+public class Citacao implements Identificavel{
 	
 	@Id
 	private int id;
@@ -33,8 +33,8 @@ public class Citacao {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long l) {
+		this.id = (int) l;
 	}
 	public Pensador getAutor() {
 		return autor;

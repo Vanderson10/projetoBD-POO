@@ -10,12 +10,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Usuario {
+public class Usuario implements Identificavel {
 	
 	@Id
 	private long cpf;
 	private String email;
-	private int idade;
+	private long idade;
 	private String nome;
 	
 	@ManyToMany
@@ -43,10 +43,10 @@ public class Usuario {
 		this.email = email;
 	}
 	public int getIdade() {
-		return idade;
+		return (int) idade;
 	}
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public void setIdade(long l) {
+		this.idade = l;
 	}
 	public String getNome() {
 		return nome;
@@ -81,7 +81,7 @@ public class Usuario {
 		result = prime * result + ((avaliacoes == null) ? 0 : avaliacoes.hashCode());
 		result = prime * result + (int) (cpf ^ (cpf >>> 32));
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + idade;
+		result = (int) (prime * result + idade);
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((visualiza == null) ? 0 : visualiza.hashCode());
 		return result;

@@ -2,10 +2,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria {
+public class Categoria implements Identificavel {
 	
 	@Id
-	private int id;
+	private long id;
 	private String nome;
 	public String getNome() {
 		return nome;
@@ -14,10 +14,10 @@ public class Categoria {
 		this.nome = nome;
 	}
 	public int getId() {
-		return id;
+		return (int) id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long l) {
+		this.id = l;
 	}
 	@Override
 	public String toString() {
@@ -28,7 +28,7 @@ public class Categoria {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = (int) (prime * result + id);
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
