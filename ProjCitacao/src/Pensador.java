@@ -2,17 +2,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Pensador {
+public class Pensador implements Identificavel {
 	@Id
-	private int id;
+	private long id;
 	private String nome;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		long result = 1;
 		result = prime * result + id;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
+		return (int) result;
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -38,11 +38,11 @@ public class Pensador {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long l) {
+		this.id = l;
 	}
 	
 	@Override
