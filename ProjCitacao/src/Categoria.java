@@ -1,9 +1,30 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria implements Identificavel {
+public class Categoria implements ProjCitacao {
 	
+	//-----------------------------------POSSIVEIS THROWS----------------------------------------//
+	
+		@Override
+		public Categoria registraCategoria1 (Categoria categoria) throws CategoriaInvalidoException {
+			Categoria categoria1 = new Categoria();
+			if(categoria1 == null || categoria1.isEmpty()) {
+				throw new CategoriaInvalidoException();
+			}
+			return null;
+		}
+		
+	//---------------------------------------------------------------------------------------------//	
+	
+	private boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	@Id
 	private long id;
 	private String nome;
@@ -49,5 +70,41 @@ public class Categoria implements Identificavel {
 		} else if (!nome.equals(other.nome))
 			return false;
 		return true;
+	}
+	@Override
+	public Citacao enviar(Citacao citacao, Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Citacao avaliar(Citacao citacao, ArrayList<Citacao> avalia, HashMap<Citacao, Integer> avaliacoes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Citacao registraCitacao(Citacao citacao) throws CitacaoInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Pensador registraPensador1(Pensador pensador) throws PensadorInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Categoria registraCategoria(Categoria categoria) throws CategoriaInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void registraUsuario(Usuario Usuario) throws UsuarioInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Usuario registraUsuario1(Usuario Usuario) throws UsuarioInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

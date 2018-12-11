@@ -7,13 +7,15 @@ public interface ProjCitacao {
 	
 	public Citacao avaliar(Citacao citacao, ArrayList<Citacao>avalia, HashMap<Citacao, Integer> avaliacoes);
 	
-	public void registraCitacao (Citacao citacao);
 	
-	public void registraPensador (Pensador pensador);
 	
-	public void registraCategoria (Categoria categoria);
+	public Citacao registraCitacao (Citacao citacao) throws CitacaoInvalidoException;
 	
-	public void registraUsuario (Usuario Usuario);
+	public Pensador registraPensador1 (Pensador pensador) throws PensadorInvalidoException;
+	
+	public Categoria registraCategoria1 (Categoria categoria) throws CategoriaInvalidoException;
+	
+	public Usuario registraUsuario1 (Usuario Usuario) throws UsuarioInvalidoException;
 	
 	 
 	

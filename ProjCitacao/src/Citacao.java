@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -6,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Citacao implements Identificavel{
+public class Citacao implements ProjCitacao {
 	
 	@Id
 	private int id;
@@ -20,8 +22,18 @@ public class Citacao implements Identificavel{
 	@JoinColumn(name="id_categoria")
 	private Categoria categoria;
 	
+	//-----------------------------------POSSIVEIS THROWS----------------------------------------//
 	
-	
+	@Override
+	public Citacao registraCitacao(Citacao citacao) throws CitacaoInvalidoException {
+		Citacao citacao1 = new Citacao();
+		if(citacao1 == null || citacao1.isEmpty()) {
+			throw new CitacaoInvalidoException();
+		}
+		return null;
+
+	}
+
 	
 	//--------------------------------GET E SETS----------------------------------------------//
 	public String getDescricao() {
@@ -86,6 +98,81 @@ public class Citacao implements Identificavel{
 	@Override
 	public String toString() {
 		return "Citacao [descricao=" + descricao + ", id=" + id + ", autores=" + autor + "]";
+	}
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+
+	@Override
+	public Citacao enviar(Citacao citacao, Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+	@Override
+	public Citacao avaliar(Citacao citacao, ArrayList<Citacao> avalia, HashMap<Citacao, Integer> avaliacoes) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+	@Override
+	public void registraPensador(Pensador pensador) throws PensadorInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void registraCategoria(Categoria categoria) throws CategoriaInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+	@Override
+	public void registraUsuario(Usuario Usuario) throws UsuarioInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Pensador registraPensador1(Pensador pensador) throws PensadorInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Categoria registraCategoria1(Categoria categoria) throws CategoriaInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Usuario registraUsuario1(Usuario Usuario) throws UsuarioInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
